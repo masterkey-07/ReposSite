@@ -2,10 +2,11 @@ const express = require("express");
 const router = express.Router();
 const { getRepositories } = require("../functions/repos.js");
 const { openRepository } = require("../functions/terminal");
+const config = require("config");
 
 // Get All Repositories
 router.get("/", async (req, res) => {
-  res.json(getRepositories());
+  res.json(getRepositories(config.get("reposPath")));
 });
 
 // Open the selected repository with VSCode
