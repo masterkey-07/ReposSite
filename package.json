@@ -1,28 +1,31 @@
 {
-  "name": "Site-To-List-Personal-Projects",
+  "name": "ReposSite",
   "version": "1.0.0",
-  "description": "Site-To-List-Personal-Projects\r This will be a site with a running server behind that it will create a html listing all projects that are in your PC that has a .git in it, and in this list each project name will be set as a link that when the user click it, it will open the project with VSCode.",
+  "description": "ReposSite\r This will be a site with a running server behind that it will create a html listing all projects that are in your PC that has a .git in it, and in this list each project name will be set as a link that when the user click it, it will open the project with VSCode.",
   "main": "server.js",
   "dependencies": {
     "config": "^3.3.6",
     "express": "^4.17.1"
   },
   "devDependencies": {
+    "concurrently": "^6.0.2",
     "nodemon": "^2.0.7"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server.js"
+    "server": "nodemon server.js",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/masterkey-07/Site-To-List-Personal-Projects.git"
+    "url": "git+https://github.com/masterkey-07/ReposSite.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/masterkey-07/Site-To-List-Personal-Projects/issues"
+    "url": "https://github.com/masterkey-07/ReposSite/issues"
   },
-  "homepage": "https://github.com/masterkey-07/Site-To-List-Personal-Projects#readme"
+  "homepage": "https://github.com/masterkey-07/ReposSite#readme"
 }

@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const { getRepositories } = require("../functions/repos.js");
-const { openRepository } = require("../functions/terminal");
+const { openRepository, deleteRepository } = require("../functions/terminal");
 const config = require("config");
 
 // Get All Repositories
@@ -10,15 +10,26 @@ router.get("/", async (req, res) => {
 });
 
 // Open the selected repository with VSCode
-router.get("/open", async (req, res) => {
+router.post("/open", async (req, res) => {
   const result = openRepository(req.body.path);
 
   res
-    .status(result ? 400 : 404)
+    .status(result ? 200 : 404)
     .json(
       result
         ? { msg: "Repository open with VSCode" }
         : { msg: "Repository not found" }
+    );
+});
+
+// Delete the selected repository
+router.post("/delete", async (req, res) => {
+  const result = deleteRepository(req.body.path);
+
+  res
+    .status(result ? 200 : 404)
+    .json(
+      result ? { msg: "Repository Deleted" } : { msg: "Repository not found" }
     );
 });
 

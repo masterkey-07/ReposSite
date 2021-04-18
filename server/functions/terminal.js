@@ -1,4 +1,5 @@
 const { exec } = require("child_process");
+const fs = require("fs");
 
 const openRepository = (path) => {
   try {
@@ -10,6 +11,17 @@ const openRepository = (path) => {
   }
 };
 
+const deleteRepository = (path) => {
+  try {
+    exec(`recycle "${path}"`);
+    return true;
+  } catch (error) {
+    console.error(error);
+    return false;
+  }
+};
+
 module.exports = {
   openRepository: openRepository,
+  deleteRepository: deleteRepository,
 };
