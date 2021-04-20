@@ -1,5 +1,4 @@
 const { exec } = require("child_process");
-const fs = require("fs");
 
 const openRepository = (path) => {
   try {
@@ -11,9 +10,9 @@ const openRepository = (path) => {
   }
 };
 
-const deleteRepository = (path) => {
+const openRepositoryFiles = (path) => {
   try {
-    exec(`recycle "${path}"`);
+    exec(`explorer "${path}"`);
     return true;
   } catch (error) {
     console.error(error);
@@ -21,7 +20,18 @@ const deleteRepository = (path) => {
   }
 };
 
+/*const deleteRepository = async (path) => {
+  try {
+    exec(`trash "${path}"`);
+    return true;
+  } catch (error) {
+    console.error(error);
+    return false;
+  }
+};*/
+
 module.exports = {
   openRepository: openRepository,
-  deleteRepository: deleteRepository,
+  //deleteRepository: deleteRepository,
+  openRepositoryFiles: openRepositoryFiles,
 };

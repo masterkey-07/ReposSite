@@ -3,7 +3,7 @@ import "./App.css";
 import { Header, Search, ReposTable } from "./components";
 import { Provider } from "react-redux";
 import store from "./store";
-function App() {
+function App({ loading }) {
   return (
     <Provider store={store}>
       <Fragment>

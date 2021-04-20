@@ -73,6 +73,10 @@ input:hover {
   justify-content: center;
 }
 
+h3 {
+  color: white;
+}
+
 table {
   border-radius: 10px;
   width: 100%;
@@ -111,7 +115,8 @@ td {
   cursor: pointer;
   font-size: 18px;
 }
-.repos-name:hover {
+.repos-name:hover,
+.repos-path:hover {
   background-color: rgb(150, 150, 150);
 }
 
@@ -122,6 +127,7 @@ td {
 .repos-path {
   width: 40%;
   border-radius: 2px;
+  cursor: pointer;
 }
 
 .delete-head {

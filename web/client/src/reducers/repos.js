@@ -1,9 +1,8 @@
 import {
   LOAD_REPOS,
-  DELETE_REPOS,
+  //DELETE_REPOS,
   ERROR,
-  SEND_MESSAGE,
-  CLOSE_MESSAGE,
+  UPDATE_FILTER,
 } from "../actions/type";
 
 const initialState = {
@@ -21,11 +20,14 @@ export default function (state = initialState, action) {
     case LOAD_REPOS:
       return { ...state, repos: data.data, loading: false };
 
-    case DELETE_REPOS:
+    case UPDATE_FILTER:
+      return { ...state, filter: data };
+
+    /*case DELETE_REPOS:
       return {
         ...state,
         repos: state.repos.filter((repo) => repo.path !== data),
-      };
+      };*/
 
     case ERROR:
       return { ...state, error: data };

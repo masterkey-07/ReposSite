@@ -10,26 +10,36 @@ const ReposTable = ({ repos: { loading, repos, filter }, getRepos }) => {
   }, [getRepos]);
   return (
     <div className="project-list">
-      <table>
-        <thead>
-          <tr>
-            <th className="left-head">Project Name</th>
-            <th>Description</th>
-            <th className="">Path</th>
-            <th className="right-head delete-head"></th>
-          </tr>
-        </thead>
-
-        {!loading && repos && (
+      {!loading && repos ? (
+        <table>
+          <thead>
+            <tr>
+              <th className="left-head">Project Name</th>
+              <th>Description</th>
+              <th className="right-head ">Path</th>
+              {/*<th className="delete-head"></th>*/}
+            </tr>
+          </thead>
           <tbody>
-            {repos.map((repo) => (
-              <Fragment>
-                <ReposItem repo={repo} />
-              </Fragment>
-            ))}
+            {repos
+              .filter(
+                (repo) =>
+                  repo.name.includes(filter) ||
+                  repo.description.includes(filter) ||
+                  repo.path.includes(filter)
+              )
+              .map((repo) => (
+                <Fragment>
+                  <ReposItem repo={repo} />
+                </Fragment>
+              ))}
           </tbody>
-        )}
-      </table>
+        </table>
+      ) : (
+        <Fragment>
+          <h3>Carregando os Repositórios</h3>
+        </Fragment>
+      )}
     </div>
   );
 };
