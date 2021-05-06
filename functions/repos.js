@@ -16,16 +16,29 @@ const getRepository = (repoPath) => {
   return repo;
 };
 
+const verifyFile = (file) => {
+  const fileTypes = [
+    ".git",
+    "index",
+    "package.json",
+    ".vs",
+    "main",
+    "README.md",
+  ];
+  fileTypes.forEach((type) => {
+    if (file.includes(type)) return true;
+  });
+  return false;
+};
+
 const getRepositories = (reposPath, repositories = []) => {
   const objects = fs.readdirSync(reposPath);
+
   if (objects.length > 0) {
-    const result = objects.find(
-      (obj) =>
-        obj === ".git" ||
-        obj.includes("index") ||
-        obj === "package.json" ||
-        obj === ".vs"
-    );
+    const result = objects.find((obj) => verifyFile(obj));
+
+    console.log(result);
+
     if (result) {
       repositories.push(getRepository(reposPath));
     } else {
