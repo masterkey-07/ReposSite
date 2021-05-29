@@ -11,10 +11,7 @@ const getRepository = (repoPath) => {
       descrip.length > 400 ? descrip.slice(0, 400) + "..." : descrip;
   } else repo.description = "";
   repo.name = path.basename(repoPath);
-  repo.path = repoPath.replace(
-    repoPath.substring(repoPath.indexOf("\\") + 1, repoPath.indexOf("\\repos")),
-    "..."
-  );
+  repo.path = repoPath;
 
   return repo;
 };

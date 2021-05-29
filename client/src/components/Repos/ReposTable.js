@@ -15,18 +15,15 @@ const ReposTable = ({ repos: { loading, repos, filter }, getRepos }) => {
           <thead>
             <tr>
               <th className="left-head">Project Name</th>
-              <th>Description</th>
               <th className="right-head ">Path</th>
-              {/*<th className="delete-head"></th>*/}
             </tr>
           </thead>
           <tbody>
             {repos
               .filter(
                 (repo) =>
-                  repo.name.includes(filter) ||
-                  repo.description.includes(filter) ||
-                  repo.path.includes(filter)
+                  repo.name.toLowerCase().includes(filter) ||
+                  repo.path.toLowerCase().includes(filter)
               )
               .map((repo) => (
                 <Fragment>

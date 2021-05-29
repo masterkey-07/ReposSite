@@ -20,18 +20,7 @@ const openRepositoryFiles = (path) => {
   }
 };
 
-/*const deleteRepository = async (path) => {
-  try {
-    exec(`trash "${path}"`);
-    return true;
-  } catch (error) {
-    console.error(error);
-    return false;
-  }
-};*/
-
 module.exports = {
   openRepository: openRepository,
-  //deleteRepository: deleteRepository,
   openRepositoryFiles: openRepositoryFiles,
 };

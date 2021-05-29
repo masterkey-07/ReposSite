@@ -38,15 +38,4 @@ router.post("/open-files", async (req, res) => {
     );
 });
 
-// Delete the selected repository
-/*router.post("/delete", async (req, res) => {
-  const result = await deleteRepository(req.body.path);
-
-  res
-    .status(result ? 200 : 404)
-    .json(
-      result ? { msg: "Repository Deleted" } : { msg: "Repository not found" }
-    );
-});*/
-
 module.exports = router;

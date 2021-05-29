@@ -1,9 +1,4 @@
-import {
-  LOAD_REPOS,
-  //DELETE_REPOS,
-  ERROR,
-  UPDATE_FILTER,
-} from "../actions/type";
+import { LOAD_REPOS, ERROR, UPDATE_FILTER } from "../actions/type";
 
 const initialState = {
   loading: true,
@@ -22,12 +17,6 @@ export default function (state = initialState, action) {
 
     case UPDATE_FILTER:
       return { ...state, filter: data };
-
-    /*case DELETE_REPOS:
-      return {
-        ...state,
-        repos: state.repos.filter((repo) => repo.path !== data),
-      };*/
 
     case ERROR:
       return { ...state, error: data };
