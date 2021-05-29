@@ -11,24 +11,33 @@ const getRepository = (repoPath) => {
       descrip.length > 400 ? descrip.slice(0, 400) + "..." : descrip;
   } else repo.description = "";
   repo.name = path.basename(repoPath);
-  repo.path = repoPath;
+  repo.path = repoPath.replace(
+    repoPath.substring(repoPath.indexOf("\\") + 1, repoPath.indexOf("\\repos")),
+    "..."
+  );
 
   return repo;
 };
 
 const verifyFile = (file) => {
+  let result = false;
+
   const fileTypes = [
     ".git",
-    "index",
+    "index.html",
+    "index.js",
     "package.json",
     ".vs",
-    "main",
+    "main.py",
     "README.md",
+    ".sln",
   ];
+
   fileTypes.forEach((type) => {
-    if (file.includes(type)) return true;
+    if (file.includes(type)) result = true;
   });
-  return false;
+
+  return result;
 };
 
 const getRepositories = (reposPath, repositories = []) => {
@@ -36,8 +45,6 @@ const getRepositories = (reposPath, repositories = []) => {
 
   if (objects.length > 0) {
     const result = objects.find((obj) => verifyFile(obj));
-
-    console.log(result);
 
     if (result) {
       repositories.push(getRepository(reposPath));

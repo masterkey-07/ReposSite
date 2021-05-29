@@ -1,11 +1,10 @@
 const express = require("express");
 const router = express.Router();
-const { getRepositories } = require("../../functions/repos");
+const { getRepositories } = require("../functions/repos");
 const {
   openRepository,
   openRepositoryFiles,
-  //deleteRepository,
-} = require("../../functions/terminal");
+} = require("../functions/terminal");
 const config = require("config");
 
 // Get All Repositories
