@@ -12,10 +12,10 @@ function App() {
         <GlobalStyle />
         <Header />
         <Container>
-          <div>
+          <form>
             <Search />
             <ReposTable />
-          </div>
+          </form>
         </Container>
       </Fragment>
     </Provider>

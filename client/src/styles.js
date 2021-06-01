@@ -22,7 +22,7 @@ export const Container = styled.main`
   justify-content: center;
   box-shadow: inset 0px 2px 3px rgba(0, 0, 0, 0.25);
 
-  div {
+  form {
     width: 95%;
     border-radius: 18px;
     margin-top: 1.5%;
@@ -66,8 +66,8 @@ export const SearchField = styled.div`
 
   i {
     position: absolute;
-    right: 2.2rem;
-    top: 2.2rem;
+    right: 1rem;
+    top: 1rem;
     color: rgb(100, 100, 100);
     cursor: pointer;
   }
@@ -86,15 +86,6 @@ export const TableField = styled.div`
   table {
     border-radius: 10px;
     width: 100%;
-  }
-
-  td {
-    text-align: left;
-    padding: 5px;
-    background-color: rgb(200, 200, 200);
-    padding: 10px;
-    border-radius: 2px;
-    font-size: 15px;
   }
 `;
 
@@ -115,6 +106,12 @@ export const RightHead = styled.th`
 `;
 
 export const ReposName = styled.td`
+  text-align: left;
+  padding: 5px;
+  background-color: rgb(200, 200, 200);
+  padding: 10px;
+  border-radius: 2px;
+
   width: 30%;
   border: 0;
   cursor: pointer;
@@ -126,6 +123,13 @@ export const ReposName = styled.td`
 `;
 
 export const ReposPath = styled.td`
+  text-align: left;
+  padding: 5px;
+  background-color: rgb(200, 200, 200);
+  padding: 10px;
+  border-radius: 2px;
+  font-size: 15px;
+
   width: 70%;
   border-radius: 2px;
   cursor: pointer;
