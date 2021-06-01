@@ -22,8 +22,8 @@ const ReposTable = ({ repos: { loading, repos, filter }, getRepos }) => {
             {repos
               .filter(
                 (repo) =>
-                  repo.name.toLowerCase().includes(filter) ||
-                  repo.path.toLowerCase().includes(filter)
+                  repo.name.toLowerCase().includes(filter.toLowerCase()) ||
+                  repo.path.toLowerCase().includes(filter.toLowerCase())
               )
               .map((repo) => (
                 <Fragment>
@@ -34,7 +34,7 @@ const ReposTable = ({ repos: { loading, repos, filter }, getRepos }) => {
         </table>
       ) : (
         <Fragment>
-          <h3>Carregando os Repositórios</h3>
+          <h3>Loading Repositories</h3>
         </Fragment>
       )}
     </div>
