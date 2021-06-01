@@ -1,10 +1,11 @@
 import React from "react";
+import { ReposHeader } from "../../styles";
 
 const Header = () => {
   return (
-    <header>
+    <ReposHeader>
       <h1>My Repositories</h1>
-    </header>
+    </ReposHeader>
   );
 };
 

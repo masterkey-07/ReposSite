@@ -3,19 +3,20 @@ import ReposItem from "./ReposItem";
 import { connect } from "react-redux";
 import { getRepos } from "../../actions/repos";
 import PropTypes from "prop-types";
+import { LeftHead, RightHead, TableField } from "../../styles";
 
 const ReposTable = ({ repos: { loading, repos, filter }, getRepos }) => {
   useEffect(() => {
     getRepos();
   }, [getRepos]);
   return (
-    <div className="project-list">
+    <TableField>
       {!loading && repos ? (
         <table>
           <thead>
             <tr>
-              <th className="left-head">Project Name</th>
-              <th className="right-head ">Path</th>
+              <LeftHead>Project Name</LeftHead>
+              <RightHead>Path</RightHead>
             </tr>
           </thead>
           <tbody>
@@ -37,7 +38,7 @@ const ReposTable = ({ repos: { loading, repos, filter }, getRepos }) => {
           <h3>Loading Repositories</h3>
         </Fragment>
       )}
-    </div>
+    </TableField>
   );
 };
 

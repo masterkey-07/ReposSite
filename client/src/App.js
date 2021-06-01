@@ -1,19 +1,22 @@
 import React, { Fragment } from "react";
-import "./App.css";
 import { Header, Search, ReposTable } from "./components";
 import { Provider } from "react-redux";
 import store from "./store";
+import { Container } from "./styles";
+import { GlobalStyle } from "./styles";
+
 function App() {
   return (
     <Provider store={store}>
       <Fragment>
+        <GlobalStyle />
         <Header />
-        <main>
-          <div className="container">
+        <Container>
+          <div>
             <Search />
             <ReposTable />
           </div>
-        </main>
+        </Container>
       </Fragment>
     </Provider>
   );

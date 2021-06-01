@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { openRepos, openReposFiles } from "../../actions/repos";
+import { ReposName, ReposPath } from "../../styles";
 
 const ReposItem = ({
   repo: { name, description, path },
@@ -9,15 +10,13 @@ const ReposItem = ({
 }) => {
   return (
     <tr>
-      <td className="repos-name" onClick={(e) => openRepos(path)}>
-        {name}
-      </td>
-      <td className="repos-path" onClick={(e) => openReposFiles(path)}>
+      <ReposName onClick={(e) => openRepos(path)}>{name}</ReposName>
+      <ReposPath onClick={(e) => openReposFiles(path)}>
         {path.replace(
           path.substring(path.indexOf("\\") + 1, path.indexOf("\\repos")),
           "..."
         )}
-      </td>
+      </ReposPath>
     </tr>
   );
 };

@@ -1,19 +1,18 @@
-import React, { useState } from "react";
+import React from "react";
 import { connect } from "react-redux";
 import { updateFilter } from "../../actions/repos";
+import { SearchField } from "../../styles";
 
 const Search = ({ updateFilter }) => {
   return (
-    <section id="search-field">
-      <div className="search-field">
-        <input
-          type="text"
-          placeholder="Search for a repository"
-          onChange={(e) => updateFilter(e.target.value)}
-        />
-        <i className="fas fa-search"></i>
-      </div>
-    </section>
+    <SearchField>
+      <input
+        type="text"
+        placeholder="Search for a repository"
+        onChange={(e) => updateFilter(e.target.value)}
+      />
+      <i className="fas fa-search"></i>
+    </SearchField>
   );
 };
 
